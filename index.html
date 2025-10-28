@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>San Pablo Basquetbol -
+Club Deportivo</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="css/style.css" rel="stylesheet"/></head>
+<body class="h-full bg-gray-50">
+<!-- Loading overlay -->
+<div class="fixed inset-0 bg-white bg-opacity-90 z-50 flex items-center justify-center" id="loading-overlay">
+<div class="text-center">
+<div class="loading-spinner mx-auto mb-4"></div>
+<p class="text-gray-600">Cargando San Pablo Basquetbol...</p>
+</div>
+</div>
+ 
+ <!-- Header -->
+<header class="bg-white shadow-lg sticky top-0 z-50">
+<nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center">
+<div class="flex-shrink-0 flex items-center">
+<div class="w-10 h-10 mr-3 rounded-full bg-blue-100 flex items-center justify-center" id="header-logo">
+<span class="text-xl">🏀</span>
+</div>
+<h1 class="text-2xl font-bold text-blue-600">San Pablo
+Basquetbol</h1>
+</div>
+</div>
+<div class="hidden md:block">
+<div class="ml-10 flex items-baseline space-x-4">
+<a class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#inicio">Inicio</a>
+<a class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#categorias">Categoras</a>
+<a class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#noticias">Noticias</a>
+<a class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#galeria">Galera</a>
+<a class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#partidos">Partidos</a>
+<a class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors" href="#horarios">Horarios</a>
+<button class="text-gray-400 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors" id="admin-toggle" onclick="toggleAdminMode()">
+<span id="admin-icon">🔒</span>
+</button>
+<a class="bg-yellow-500 text-blue-900 hover:bg-yellow-400 px-4 py-2 rounded-md text-sm font-medium transition-colors font-bold" href="#unirse">nete</a>
+</div>
+</div>
+</div>
+</nav>
+</header>
+ 
+ <main>
+<!-- Hero Section -->
+<section class="hero-bg text-white py-20 relative overflow-hidden" id="inicio">
+<!-- Imagen de fondo
+personalizada -->
+<div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 transition-opacity duration-500" id="hero-background"></div>
+<!-- Overlay para
+mejorar legibilidad del texto -->
+<div class="absolute inset-0 bg-black opacity-0 transition-opacity duration-500" id="hero-overlay"></div>
+<!-- Botn para subir
+imagen de fondo (solo admin) -->
+<div class="absolute top-4 right-4 hidden" id="hero-upload-button">
+<button class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors backdrop-blur-sm border border-white border-opacity-30" onclick="uploadHeroImage()">
+ 📸 Cambiar Fondo
+ </button>
+</div>
+<!-- Botn para quitar imagen (solo admin)
+-->
+<div class="absolute top-4 left-4 hidden" id="hero-remove-button">
+<button class="bg-red-500 bg-opacity-80 hover:bg-opacity-100 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors" onclick="removeHeroImage()">
+ 🗑️ Quitar
+Fondo
+ </button>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+<h2 class="text-5xl font-bold mb-6 drop-shadow-lg">San Pablo Basquetbol</h2>
+<p class="text-xl mb-4 drop-shadow-md">Fundado en 2009</p>
+<p class="text-lg mb-8 max-w-3xl mx-auto drop-shadow-md">Ms de 15
+aos formando jugadores y promoviendo el bsquetbol en nuestra comunidad. nete a nuestra familia deportiva.</p>
+<a class="bg-yellow-500 text-blue-900 hover:bg-yellow-400 px-8 py-3 rounded-lg text-lg font-semibold transition-colors inline-block shadow-lg" href="#unirse">nete al Club!</a>
+</div>
+</section>
+ 
+ <!-- Categoras Section -->
+<section class="py-16 bg-white" id="categorias">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h3 class="text-3xl font-bold text-center text-gray-900 mb-12">Nuestras
+Categoras</h3>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Liga del Este
+-->
+<div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 text-center border-2 border-yellow-400">
+<div class="text-4xl mb-4">🏆</div>
+<h4 class="text-xl font-bold text-blue-900 mb-3">Liga del
+Este</h4>
+<p class="text-gray-700 mb-4">Competimos en la prestigiosa Liga del
+Este, enfrentando a los mejores equipos de la regin.</p>
+<div class="bg-yellow-500 text-blue-900 px-4 py-2 rounded-full text-sm font-bold">Activa</div>
+</div>
+ 
+ <!-- Veteranos +50
+-->
+<div class="card-hover bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 text-center border-2 border-blue-400">
+<div class="text-4xl mb-4">🥇</div>
+<h4 class="text-xl font-bold text-blue-900 mb-3">Veteranos
++50</h4>
+<p class="text-gray-700 mb-4">Para jugadores experimentados que
+mantienen viva la pasin por el bsquetbol.</p>
+<div class="bg-blue-600 text-yellow-100 px-4 py-2 rounded-full text-sm font-bold">Activa</div>
+</div>
+ 
+ <!-- Veteranos +35
+-->
+<div class="card-hover bg-gradient-to-br from-blue-50 to-yellow-50 rounded-xl p-6 text-center border-2 border-blue-400">
+<div class="text-4xl mb-4">🏅</div>
+<h4 class="text-xl font-bold text-blue-900 mb-3">Veteranos
++35</h4>
+<p class="text-gray-700 mb-4">Categora para jugadores que buscan
+mantener su nivel competitivo.</p>
+<div class="bg-yellow-500 text-blue-900 px-4 py-2 rounded-full text-sm font-bold">Activa</div>
+</div>
+</div>
+ 
+ <!-- Categoras
+Formativas -->
+<div class="mt-6 bg-gradient-to-r from-yellow-50 to-blue-50 rounded-xl p-8 text-center border-2 border-yellow-400">
+<div class="text-5xl mb-4">🌟</div>
+<h4 class="text-2xl font-bold text-blue-900 mb-4">Categoras
+Formativas</h4>
+<p class="text-lg text-gray-700 mb-6">Prximamente! Estamos
+trabajando para incorporar categoras juveniles e infantiles.</p>
+<!-- Categoras Formativas Detalladas
+-->
+<div class="bg-white rounded-lg p-6 mb-6 max-w-6xl mx-auto border-2 border-blue-300">
+<h5 class="text-xl font-bold text-blue-900 mb-6 text-center">🏀 Categoras Formativas Planificadas</h5>
+<!--
+Categoras Menores -->
+<div class="mb-6">
+<h6 class="text-lg font-semibold text-blue-800 mb-4 text-center">👶 Categoras Menores</h6>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-gradient-to-br from-blue-50 to-yellow-50 rounded-lg p-4 text-center border border-yellow-300">
+<div class="text-5xl mb-2">👶🏻🏀</div>
+<h6 class="font-bold text-blue-900 text-sm">U7 - Mosquito</h6>
+<p class="text-xs text-gray-600">6 y 7 aos</p>
+<p class="text-xs text-blue-600 font-medium">(2019-2018)</p>
+</div>
+<div class="bg-gradient-to-br from-yellow-50 to-blue-50 rounded-lg p-4 text-center border border-blue-300">
+<div class="text-5xl mb-2">🧒🏻⛹️‍♂️</div>
+<h6 class="font-bold text-blue-900 text-sm">U9 - Pre-Mini</h6>
+<p class="text-xs text-gray-600">8 y 9 aos</p>
+<p class="text-xs text-blue-600 font-medium">(2017-2016)</p>
+</div>
+<div class="bg-gradient-to-br from-blue-50 to-yellow-50 rounded-lg p-4 text-center border border-yellow-300">
+<div class="text-5xl mb-2">👧🏻🏀</div>
+<h6 class="font-bold text-blue-900 text-sm">U11 - Mini</h6>
+<p class="text-xs text-gray-600">10 y 11 aos</p>
+<p class="text-xs text-blue-600 font-medium">(2015-2014)</p>
+</div>
+</div>
+</div>
+ 
+ <!-- Categoras Juveniles -->
+<div class="mb-6">
+<h6 class="text-lg font-semibold text-blue-800 mb-4 text-center">🏆 Categoras Juveniles</h6>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-gradient-to-br from-yellow-50 to-blue-50 rounded-lg p-4 text-center border border-blue-300">
+<div class="text-4xl mb-2">🏀⭐</div>
+<h6 class="font-bold text-blue-900 text-sm">U13</h6>
+<p class="text-xs text-gray-600">12 y 13 aos</p>
+<p class="text-xs text-blue-600 font-medium">(2013-2012)</p>
+</div>
+<div class="bg-gradient-to-br from-blue-50 to-yellow-50 rounded-lg p-4 text-center border border-yellow-300">
+<div class="text-4xl mb-2">🏆🔥</div>
+<h6 class="font-bold text-blue-900 text-sm">U15</h6>
+<p class="text-xs text-gray-600">14 y 15 aos</p>
+<p class="text-xs text-blue-600 font-medium">(2011-2010)</p>
+</div>
+<div class="bg-gradient-to-br from-yellow-50 to-blue-50 rounded-lg p-4 text-center border border-blue-300">
+<div class="text-4xl mb-2">🥇💪</div>
+<h6 class="font-bold text-blue-900 text-sm">U17</h6>
+<p class="text-xs text-gray-600">16 y 17 aos</p>
+<p class="text-xs text-blue-600 font-medium">(2009-2008)</p>
+</div>
+<div class="bg-gradient-to-br from-blue-50 to-yellow-50 rounded-lg p-4 text-center border border-yellow-300">
+<div class="text-4xl mb-2">🏅🌟</div>
+<h6 class="font-bold text-blue-900 text-sm">U21</h6>
+<p class="text-xs text-gray-600">18-21 aos</p>
+<p class="text-xs text-blue-600 font-medium">Juvenil
+Superior</p>
+</div>
+</div>
+</div>
+ 
+ <!-- Informacin Adicional -->
+<div class="bg-gradient-to-r from-blue-100 to-yellow-100 rounded-lg p-4 text-center">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+<div>
+<div class="text-2xl mb-1">👨‍🏫</div>
+<div class="font-bold text-blue-900">Entrenadores</div>
+<div class="text-gray-600">Especializados</div>
+</div>
+<div>
+<div class="text-2xl mb-1">🏀</div>
+<div class="font-bold text-blue-900">Entrenamientos</div>
+<div class="text-gray-600">Tcnica y tctica</div>
+</div>
+<div>
+<div class="text-2xl mb-1">🏆</div>
+<div class="font-bold text-blue-900">Competencias</div>
+<div class="text-gray-600">Torneos locales</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-yellow-500 text-blue-900 px-6 py-3 rounded-full text-sm font-bold inline-block">En Desarrollo</div>
+</div>
+</div>
+</section>
+ 
+ <!-- Prximos Partidos Section -->
+<section class="py-16 bg-white" id="partidos">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h3 class="text-3xl font-bold text-center text-gray-900 mb-12">⚡ Prximos
+Partidos</h3>
+<!-- Formulario para agregar partidos
+(solo admin) -->
+<div class="bg-gradient-to-r from-blue-50 to-yellow-50 rounded-xl p-8 mb-12 border-2 border-blue-300 hidden" id="match-form-section">
+<div class="text-center mb-6">
+<div class="text-4xl mb-3">⚽</div>
+<h4 class="text-2xl font-bold text-blue-900 mb-2">Programar Nuevo
+Partido</h4>
+<p class="text-gray-600">Agrega los detalles del prximo
+encuentro</p>
+</div>
+<form class="max-w-6xl mx-auto" id="match-form">
+<div class="grid md:grid-cols-2 gap-8 mb-6">
+<!--
+Columna izquierda: Informacin del partido -->
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2" for="match-date">Fecha del Partido:</label>
+<input class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="match-date" required="" type="datetime-local"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2" for="match-location">Lugar:</label>
+<input class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="match-location" placeholder="Ej: Gimnasio Municipal, Cancha Central" required="" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2" for="match-category">Categora:</label>
+<select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="match-category" required="">
+<option value="">Seleccionar categora</option>
+<option value="liga-este">🏆
+Liga del Este</option>
+<option value="veteranos-50">🥇
+Veteranos +50</option>
+<option value="veteranos-35">🏅
+Veteranos +35</option>
+<option value="amistoso">🤝
+Partido Amistoso</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2" for="match-rival">Equipo Rival:</label>
+<input class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="match-rival" placeholder="Nombre
+del equipo rival" required="" type="text"/>
+</div>
+</div>
+<!-- Columna derecha: Escudos
+-->
+<div class="space-y-6">
+<!-- Escudo San Pablo
+-->
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Escudo San Pablo:</label>
+<div class="image-upload-area rounded-lg p-6 text-center cursor-pointer h-32 flex flex-col justify-center" id="san-pablo-shield-upload" onclick="uploadSanPabloShield()">
+<div class="text-3xl mb-1">🏀</div>
+<p class="text-sm text-gray-600 font-medium">Subir escudo San
+Pablo</p>
+</div>
+<div class="hidden mt-2" id="san-pablo-shield-preview">
+<img class="w-full h-32 object-contain rounded-lg border bg-white" id="san-pablo-preview-img"/>
+<button class="mt-2 text-red-600 hover:text-red-800 text-sm" onclick="removeSanPabloShield()" type="button">
+
+❌
+Quitar escudo
+ </button>
+</div>
+</div>
+<!--
+Escudo Rival -->
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Escudo Rival:</label>
+<div class="image-upload-area rounded-lg p-6 text-center cursor-pointer h-32 flex flex-col justify-center" id="rival-shield-upload" onclick="uploadRivalShield()">
+<div class="text-3xl mb-1">🛡️</div>
+<p class="text-sm text-gray-600 font-medium">Subir escudo
+rival</p>
+</div>
+<div class="hidden mt-2" id="rival-shield-preview">
+<img class="w-full h-32 object-contain rounded-lg border bg-white" id="rival-preview-img"/>
+<button class="mt-2 text-red-600 hover:text-red-800 text-sm" onclick="removeRivalShield()" type="button">
+
+❌
+Quitar escudo
+ </button>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center">
+<button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition-colors mr-4" type="submit">
+ ⚡ Programar Partido
+ </button>
+<button class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-6 py-3 rounded-lg font-medium transition-colors" onclick="clearMatchForm()" type="button">
+ 🗑️ Limpiar
+ </button>
+</div>
+</form>
+</div>
+<!-- Lista de partidos -->
+<div class="space-y-6" id="matches-container">
+<!-- Los partidos se cargarn aqu
+dinmicamente -->
+</div>
+<!-- Mensaje cuando no hay partidos
+-->
+<div class="text-center py-12 hidden" id="no-matches-message">
+<div class="text-6xl mb-4">⚡</div>
+<h4 class="text-xl font-bold text-gray-600 mb-2">No hay partidos
+programados</h4>
+<p class="text-gray-500">Los prximos encuentros aparecern
+aqu</p>
+</div>
+</div>
+</section>
+ 
+ <!-- Noticias Section -->
+<section class="py-16 bg-gray-50" id="noticias">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h3 class="text-3xl font-bold text-center text-gray-900 mb-12">📰 Noticias del Club</h3>
+<!-- Formulario
+para agregar noticias (solo admin) -->
+<div class="bg-gradient-to-r from-blue-50 to-yellow-50 rounded-xl p-8 mb-12 border-2 border-blue-300 hidden" id="news-form-section">
+<div class="text-center mb-6">
+<div class="text-4xl mb-3">📝</div>
+<h4 class="text-2xl font-bold text-blue-900 mb-2">Agregar Nueva
+Noticia</h4>
+<p class="text-gray-600">Comparte las ltimas novedades del
+club</p>
+</div>
+<form class="max-w-4xl mx-auto" id="news-form">
+<div class="grid md:grid-cols-2 gap-6 mb-6">
+<!--
+Columna izquierda: Formulario -->
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2" for="news-title">Ttulo de la Noticia:</label>
+<input class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="news-title" placeholder="Ej:
+Victoria en el ltimo partido" required="" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2" for="news-date">Fecha:</label>
+<input class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="news-date" required="" type="date"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2" for="news-category">Categora:</label>
+<select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="news-category" required="">
+<option value="">Seleccionar categora</option>
+<option value="general">🏀 General</option>
+<option value="liga-este">🏆
+Liga del Este</option>
+<option value="veteranos-50">🥇
+Veteranos +50</option>
+<option value="veteranos-35">🏅
+Veteranos +35</option>
+<option value="formativas">🌟
+Formativas</option>
+<option value="eventos">🎉
+Eventos</option>
+</select>
+</div>
+</div>
+<!-- Columna derecha: Imagen
+-->
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2">Imagen de la
+Noticia:</label>
+<div class="image-upload-area rounded-lg p-8 text-center cursor-pointer h-48 flex flex-col justify-center" id="news-image-upload" onclick="uploadNewsImage()">
+<div class="text-4xl mb-2">📸</div>
+<p class="text-sm text-gray-600 font-medium">Click para subir
+imagen</p>
+<p class="text-xs text-gray-500 mt-1">JPG, PNG o GIF</p>
+</div>
+<div class="hidden mt-2" id="news-image-preview">
+<img class="w-full h-48 object-cover rounded-lg border" id="news-preview-img"/>
+<button class="mt-2 text-red-600 hover:text-red-800 text-sm" onclick="removeNewsImage()" type="button">
+ ❌ Quitar imagen
+
+</button>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<label class="block text-sm font-medium text-gray-700 mb-2" for="news-content">Contenido de la Noticia:</label>
+<textarea class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" id="news-content" placeholder="Escribe
+aqu el contenido completo de la noticia..." required="" rows="6"></textarea>
+</div>
+<div class="text-center">
+<button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-bold transition-colors mr-4" type="submit">
+ 📰 Publicar Noticia
+ </button>
+<button class="bg-gray-300 hover:bg-gray-400 text-gray-700 px-6 py-3 rounded-lg font-medium transition-colors" onclick="clearNewsForm()" type="button">
+ 🗑️ Limpiar
+ </button>
+</div>
+</form>
+</div>
+<!-- Lista de noticias -->
+<div class="space-y-8" id="news-container">
+<!-- Las noticias se cargarn aqu
+dinmicamente -->
+</div>
+<!-- Mensaje cuando no hay noticias
+-->
+<div class="text-center py-12 hidden" id="no-news-message">
+<div class="text-6xl mb-4">📰</div>
+<h4 class="text-xl font-bold text-gray-600 mb-2">No hay noticias
+publicadas</h4>
+<p class="text-gray-500">Las ltimas novedades del club aparecern
+aqu</p>
+</div>
+</div>
+</section>
+ 
+ <!-- Galera Section -->
+<section class="py-16 bg-gray-50" id="galeria">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h3 class="text-3xl font-bold text-center text-gray-900 mb-12">📸 Galera de Imgenes</h3>
+<!-- Categoras Actuales
+-->
+<div class="mb-12">
+<h4 class="text-2xl font-bold text-blue-900 mb-6 text-center">🏀 Categoras Actuales</h4>
+<div class="grid md:grid-cols-3 gap-6">
+<!-- Liga del
+Este -->
+<div class="bg-white rounded-xl p-6 shadow-lg border-2 border-yellow-400">
+<div class="flex items-center justify-center mb-4">
+<div class="text-3xl mr-2">🏆</div>
+<h5 class="font-bold text-blue-900 text-lg">Liga del Este</h5>
+</div>
+<div class="image-upload-area rounded-lg p-6 text-center cursor-pointer mb-4 hidden" id="liga-este-upload" onclick="uploadImage('liga-este')">
+<div class="text-4xl mb-2">📸</div>
+<p class="text-sm text-gray-600 font-medium">Subir fotos de
+partidos</p>
+</div>
+<div class="grid grid-cols-2 gap-2" id="liga-este-gallery"></div>
+</div>
+ 
+ <!-- Veteranos
++50 -->
+<div class="bg-white rounded-xl p-6 shadow-lg border-2 border-blue-400">
+<div class="flex items-center justify-center mb-4">
+<div class="text-3xl mr-2">🥇</div>
+<h5 class="font-bold text-blue-900 text-lg">Veteranos +50</h5>
+</div>
+<div class="image-upload-area rounded-lg p-6 text-center cursor-pointer mb-4 hidden" id="veteranos-50-upload" onclick="uploadImage('veteranos-50')">
+<div class="text-4xl mb-2">📸</div>
+<p class="text-sm text-gray-600 font-medium">Subir fotos del
+equipo</p>
+</div>
+<div class="grid grid-cols-2 gap-2" id="veteranos-50-gallery"></div>
+</div>
+ 
+ <!-- Veteranos
++35 -->
+<div class="bg-white rounded-xl p-6 shadow-lg border-2 border-blue-400">
+<div class="flex items-center justify-center mb-4">
+<div class="text-3xl mr-2">🏅</div>
+<h5 class="font-bold text-blue-900 text-lg">Veteranos +35</h5>
+</div>
+<div class="image-upload-area rounded-lg p-6 text-center cursor-pointer mb-4 hidden" id="veteranos-35-upload" onclick="uploadImage('veteranos-35')">
+<div class="text-4xl mb-2">📸</div>
+<p class="text-sm text-gray-600 font-medium">Subir fotos del
+equipo</p>
+</div>
+<div class="grid grid-cols-2 gap-2" id="veteranos-35-gallery"></div>
+</div>
+</div>
+</div>
+ 
+ <!-- Historia del Club -->
+<div class="mb-12">
+<h4 class="text-2xl font-bold text-blue-900 mb-6 text-center">📚 Historia del Club</h4>
+<div class="grid md:grid-cols-2 gap-6">
+<!-- Los
+Comienzos -->
+<div class="bg-gradient-to-br from-yellow-50 to-blue-50 rounded-xl p-6 shadow-lg border-2 border-yellow-400">
+<div class="flex items-center justify-center mb-4">
+<div class="text-3xl mr-2">🌱</div>
+<h5 class="font-bold text-blue-900 text-lg">Los Comienzos
+(2009)</h5>
+</div>
+<p class="text-gray-700 text-sm mb-4 text-center">Fotos histricas de la fundacin del
+club</p>
+<div class="image-upload-area rounded-lg p-6 text-center cursor-pointer mb-4 hidden" id="comienzos-upload" onclick="uploadImage('comienzos')">
+<div class="text-4xl mb-2">📸</div>
+<p class="text-sm text-gray-600 font-medium">Subir fotos
+histricas</p>
+</div>
+<div class="grid grid-cols-2 gap-2" id="comienzos-gallery"></div>
+</div>
+ 
+ <!-- ltimas
+Formativas -->
+<div class="bg-gradient-to-br from-blue-50 to-yellow-50 rounded-xl p-6 shadow-lg border-2 border-blue-400">
+<div class="flex items-center justify-center mb-4">
+<div class="text-3xl mr-2">🌟</div>
+<h5 class="font-bold text-blue-900 text-lg">ltimas
+Formativas</h5>
+</div>
+<p class="text-gray-700 text-sm mb-4 text-center">Recuerdos de nuestras categoras
+juveniles</p>
+<div class="image-upload-area rounded-lg p-6 text-center cursor-pointer mb-4 hidden" id="formativas-upload" onclick="uploadImage('formativas')">
+<div class="text-4xl mb-2">📸</div>
+<p class="text-sm text-gray-600 font-medium">Subir fotos
+juveniles</p>
+</div>
+<div class="grid grid-cols-2 gap-2" id="formativas-gallery"></div>
+</div>
+</div>
+</div>
+ 
+ <!-- Vida del Club -->
+<div class="mb-8">
+<h4 class="text-2xl font-bold text-blue-900 mb-6 text-center">🎉 Vida del Club</h4>
+<div class="bg-white rounded-xl p-8 shadow-lg border-2 border-yellow-400">
+<div class="flex items-center justify-center mb-6">
+<div class="text-4xl mr-3">🏀</div>
+<h5 class="font-bold text-blue-900 text-xl">Club General</h5>
+</div>
+<p class="text-gray-700 mb-6 text-center">Eventos, celebraciones, entrenamientos y momentos
+especiales del club</p>
+<div class="grid md:grid-cols-2 gap-6 mb-6">
+<div class="image-upload-area rounded-lg p-8 text-center cursor-pointer" onclick="uploadImagePublic('club-general')">
+<div class="text-5xl mb-3">📸</div>
+<p class="text-lg text-gray-600 font-medium">Subir fotos del
+club</p>
+<p class="text-sm text-gray-500 mt-2">Eventos, entrenamientos,
+celebraciones</p>
+<p class="text-xs text-green-600 font-medium mt-1">✅ Abierto para todos</p>
+</div>
+<div class="bg-gradient-to-br from-blue-50 to-yellow-50 rounded-lg p-6 flex items-center justify-center">
+<div class="text-center">
+<div class="text-6xl mb-3">🏆🎊</div>
+<p class="text-blue-900 font-bold">Comparte nuestros</p>
+<p class="text-blue-900 font-bold">mejores momentos!</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" id="club-general-gallery"></div>
+</div>
+</div>
+ 
+ <!-- Contador de fotos -->
+<div class="bg-gradient-to-r from-blue-600 to-yellow-500 rounded-xl p-6 text-white text-center">
+<h5 class="text-xl font-bold mb-2">📊
+Estadsticas de la Galera</h5>
+<div class="grid grid-cols-2 md:grid-cols-6 gap-4 text-sm">
+<div>
+<div class="text-2xl font-bold" id="count-liga-este">0</div>
+<div>Liga
+del Este</div>
+</div>
+<div>
+<div class="text-2xl font-bold" id="count-veteranos-50">0</div>
+<div>Veteranos
++50</div>
+</div>
+<div>
+<div class="text-2xl font-bold" id="count-veteranos-35">0</div>
+<div>Veteranos
++35</div>
+</div>
+<div>
+<div class="text-2xl font-bold" id="count-comienzos">0</div>
+<div>Comienzos</div>
+</div>
+<div>
+<div class="text-2xl font-bold" id="count-formativas">0</div>
+<div>Formativas</div>
+</div>
+<div>
+<div class="text-2xl font-bold" id="count-club-general">0</div>
+<div>Club
+General</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+ 
+ <!-- Horarios Section -->
+<section class="py-16 bg-white" id="horarios">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h3 class="text-3xl font-bold text-center text-gray-900 mb-12">Horarios de
+Entrenamiento</h3>
+<div class="bg-white rounded-xl shadow-lg overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full">
+<thead class="bg-gradient-to-r from-blue-600 to-yellow-500 text-white">
+<tr>
+<th class="px-6 py-4 text-left font-semibold">Da</th>
+<th class="px-6 py-4 text-left font-semibold">Liga del Este</th>
+<th class="px-6 py-4 text-left font-semibold">Veteranos +50</th>
+<th class="px-6 py-4 text-left font-semibold">Veteranos +35</th>
+<th class="px-6 py-4 text-left font-semibold">Formativas</th>
+</tr>
+</thead>
+<tbody id="schedule-body">
+<tr class="border-b border-gray-200 hover:bg-gray-50">
+<td class="px-6 py-4 font-medium text-gray-900">Lunes</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 19:00 - 21:00" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 17:00 - 18:30" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 18:30 - 20:00" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Prximamente" type="text"/>
+</td>
+</tr>
+<tr class="border-b border-gray-200 hover:bg-gray-50">
+<td class="px-6 py-4 font-medium text-gray-900">Martes</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 19:00 - 21:00" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 17:00 - 18:30" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 18:30 - 20:00" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Prximamente" type="text"/>
+</td>
+</tr>
+<tr class="border-b border-gray-200 hover:bg-gray-50">
+<td class="px-6 py-4 font-medium text-gray-900">Mircoles</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 19:00 - 21:00" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 17:00 - 18:30" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 18:30 - 20:00" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Prximamente" type="text"/>
+</td>
+</tr>
+<tr class="border-b border-gray-200 hover:bg-gray-50">
+<td class="px-6 py-4 font-medium text-gray-900">Jueves</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 19:00 - 21:00" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 17:00 - 18:30" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 18:30 - 20:00" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Prximamente" type="text"/>
+</td>
+</tr>
+<tr class="border-b border-gray-200 hover:bg-gray-50">
+<td class="px-6 py-4 font-medium text-gray-900">Viernes</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 19:00 - 21:00" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 17:00 - 18:30" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 18:30 - 20:00" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Prximamente" type="text"/>
+</td>
+</tr>
+<tr class="border-b border-gray-200 hover:bg-gray-50">
+<td class="px-6 py-4 font-medium text-gray-900">Sbado</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 09:00 - 11:00" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 11:00 - 12:30" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Ej: 12:30 - 14:00" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Prximamente" type="text"/>
+</td>
+</tr>
+<tr class="hover:bg-gray-50">
+<td class="px-6 py-4 font-medium text-gray-900">Domingo</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Descanso" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Descanso" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Descanso" type="text"/>
+</td>
+<td class="px-6 py-4 schedule-cell">
+<input class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Prximamente" type="text"/>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 bg-gray-50 text-center hidden" id="schedule-save-section">
+<button class="bg-yellow-500 hover:bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-bold transition-colors" onclick="saveSchedule()">
+ Guardar
+Horarios
+ </button>
+</div>
+</div>
+</div>
+</section>
+ 
+ <!-- nirse Section -->
+<section class="py-16 bg-gradient-to-r from-blue-600 via-blue-700 to-yellow-500 text-white" id="unirse">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h3 class="text-3xl font-bold mb-6">nete a San Pablo Basquetbol!</h3>
+<p class="text-xl mb-8">Listo para formar parte de nuestra familia
+deportiva? Completa el formulario de inscripcin y comienza tu aventura con
+nosotros.</p>
+<a class="bg-yellow-500 text-blue-900 hover:bg-yellow-400 px-8 py-4 rounded-lg text-lg font-bold transition-colors inline-block shadow-lg" href="https://forms.gle/Kdxj86vf7z6FgpKcA" rel="noopener noreferrer" target="_blank">
+ Completar
+Formulario de Inscripcin
+ </a>
+<p class="text-sm mt-4 opacity-90">El formulario se abrir en una nueva ventana</p>
+</div>
+</section>
+</main>
+ 
+ <!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center">
+<h4 class="text-2xl font-bold mb-4">🏀 San Pablo Basquetbol</h4>
+<p class="text-gray-400 mb-4">Fundado en 2009 - Ms de 15 aos
+promoviendo el bsquetbol</p>
+<p class="text-gray-400"> 2024 San Pablo Basquetbol. Todos
+los derechos reservados.</p>
+</div>
+</div>
+</footer>
+ 
+ <!-- Hidden file inputs -->
+<input accept="image/*" id="imageInput" multiple="" onchange="handleImageUpload(event)" style="display: none;" type="file"/>
+<input accept="image/*" id="newsImageInput" onchange="handleNewsImageUpload(event)" style="display:
+none;" type="file"/>
+<input accept="image/*" id="heroImageInput" onchange="handleHeroImageUpload(event)" style="display:
+none;" type="file"/>
+<input accept="image/*" id="sanPabloShieldInput" onchange="handleSanPabloShieldUpload(event)" style="display: none;" type="file"/>
+<input accept="image/*" id="rivalShieldInput" onchange="handleRivalShieldUpload(event)" style="display:
+none;" type="file"/>
+ 
+ <!-- Firebase SDK -->
+
+ 
+ 
+<script src="js/script.js"></script></body>
+</html>
